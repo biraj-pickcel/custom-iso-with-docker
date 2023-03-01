@@ -1,4 +1,6 @@
-# learning Docker
+#  dummy-docker-app
+
+a super simple Node.js app created for me to understand Docker.
 
 ## building & running
 
@@ -52,4 +54,3 @@ default command that the container should run when it is started, which is `node
 - EXPOSE 3000
 this line just documents that the container will listen on port 3000 i.e it does not actually publish or expose the port to the host, but it informs the user that the container is expected to listen on this port
 ```
-# dummy-docker-app
