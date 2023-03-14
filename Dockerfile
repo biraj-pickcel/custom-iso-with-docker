@@ -1,8 +1,8 @@
-# syntax=docker/dockerfile:1
-
 FROM node:18-alpine
 WORKDIR /app
-COPY . .
+COPY package.json .
+COPY .env .
 RUN yarn install --production
-CMD ["node", "index.js"]
+COPY src src
+CMD ["yarn", "start"]
 EXPOSE 3000

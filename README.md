@@ -2,6 +2,12 @@
 
 a super simple Node.js app created for me to understand Docker.
 
+## running
+
+```
+$ docker compose up
+```
+
 ## explanation of Dockerfile
 
 ```
@@ -36,7 +42,7 @@ this line just documents that the container will listen on port 3000 i.e it does
 - run the image
 
   ```
-  $ docker run --name <container-name> -dp 3000:3000 <image-name>
+  $ docker run --name <container-name> -d -p 3000:3000 <image-name>
   ```
 
   _note:_
@@ -50,7 +56,7 @@ this line just documents that the container will listen on port 3000 i.e it does
   ```
   $ docker stop <container-id-or-name>
   ```
-- get container ids of running docker processes by
+- to get container ids of running docker processes, run
   ```
   $ docker ps
   ```

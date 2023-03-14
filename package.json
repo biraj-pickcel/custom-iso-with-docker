@@ -3,11 +3,18 @@
   "type": "module",
   "version": "1.0.0",
   "scripts": {
-    "start": "node index.js"
+    "start": "node src/index.js",
+    "dev": "npx nodemon src/index.js",
+    "docker-clean": "bash docker-clean.sh"
   },
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.18.2"
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^7.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.21"
   }
 }
