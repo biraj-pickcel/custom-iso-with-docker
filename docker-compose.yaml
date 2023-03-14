@@ -10,6 +10,7 @@ services:
       - mongo
     depends_on:
       - mongo
+    restart: always
   mongo:
     container_name: mongo
     build: mongo
@@ -17,3 +18,4 @@ services:
       - 27107:27107
     volumes:
       - /data/db:/data/db
+    restart: always
