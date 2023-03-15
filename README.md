@@ -38,6 +38,7 @@ these are the steps that i've followed to get a custom Ubuntu Server 20.04 LTS
   _note: for saving docker images, read in [docker reference](#saving-images) below_
 
 - copy _docker-compose.yaml_ to _/.pickcel_
+- since we will be using images, replace `build: <path>` with `image: <image-name>`
 - run the _cubic-setup.sh_ script
 - make sure that the permissions for _/.pickcel_ directory & all its contents is 600
 - remove sudo previliges from the user if given
