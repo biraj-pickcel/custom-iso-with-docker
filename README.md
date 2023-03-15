@@ -114,7 +114,7 @@ these are the steps that i've followed to get a custom Ubuntu Server 20.04 LTS
 - make sure that the permissions for _/.pickcel_ directory & all its contents is 600
 - remove sudo previliges from the user if given
   ```
-  $ sudo deluser USERNAME sudo
+  $ sudo deluser <user> sudo
   ```
 - customizations done! now generate the iso & close Cubic
 - create a config file _user-data_ with the following (for default account creation):
