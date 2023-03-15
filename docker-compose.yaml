@@ -1,7 +1,7 @@
 services:
   app:
     container_name: dummy-docker-app
-    build: .
+    build: dummy-docker-app-app
     ports:
       - 3000:3000
     volumes:
@@ -13,7 +13,7 @@ services:
     restart: always
   mongo:
     container_name: mongo
-    build: mongo
+    build: dummy-docker-app-mongo
     ports:
       - 27107:27107
     volumes:
