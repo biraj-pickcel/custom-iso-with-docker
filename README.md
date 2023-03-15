@@ -41,6 +41,10 @@ these are the steps that i've followed to get a custom Ubuntu Server 20.04 LTS
 - since we will be using images, replace `build: <path>` with `image: <image-name>`
 - run the _cubic-setup.sh_ script
 - make sure that the permissions for _/.pickcel_ directory & all its contents is 600
+- to backup our database daily, setup a cron job using `crontab -e` & add
+  ```
+  0 0 * * * /.pickcel/scripts/mongo-backup.sh
+  ```
 - remove sudo previliges from the user if given
   ```
   $ sudo deluser <user> sudo
