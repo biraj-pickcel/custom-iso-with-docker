@@ -1,9 +1,6 @@
 set -e
 
-DB_NAME=biraj
-DB_USER=biraj
-DB_PASS=biraj\$21..
-BACKUP_DIR="$HOME/Desktop/backup"
+BACKUP_DIR="$HOME/backup" # $HOME will be /data/db in our container
 BACKUP_NAME=$(date +%y-%m-%d_%H-%M-%S).gz
 DAYS_TO_KEEP=3
 
