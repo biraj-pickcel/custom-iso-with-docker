@@ -3,8 +3,7 @@ set -e
 
 PICKCEL=/.pickcel
 
-docker load -i "$PICKCEL/images/dummy-docker-app-app.tar"
-docker load -i "$PICKCEL/images/dummy-docker-app-mongo.tar"
+docker load -i "$PICKCEL/images/dummy-docker-app.tar"
 
 docker compose -f "$PICKCEL/docker-compose.yaml" up
 

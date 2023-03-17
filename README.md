@@ -2,8 +2,10 @@
 
 ## creating a custom Ubuntu Server 20.04 LTS iso
 
-these are the steps that i've followed to get a custom Ubuntu Server 20.04 LTS
-
+- save docker images using
+  ```
+  $ docker save -o dummy-docker-app.tar $(docker images --format "{{.Repository}}:{{.Tag}}" | grep dummy-docker-app)
+  ```
 - download the Ubuntu Server **20.04** iso
 - install [Cubic](https://github.com/PJ-Singh-001/Cubic) (Custom Ubuntu ISO Creator)
 - create a cubic project, choose iso then set name, version & stuff
@@ -25,26 +27,28 @@ these are the steps that i've followed to get a custom Ubuntu Server 20.04 LTS
   ```
 - install [docker](https://docs.docker.com/engine/install/ubuntu/)
 - create the following directoies:
-
   ```
   /.pickcel
     |- images
     |- scripts
     |- services
   ```
-
-- then copy the saved docker image tar files, scripts & services in the corresponding subdirs.
+- then copy the saved docker images tar file _dummy-docker-app.tar_, scripts & services in the corresponding subdirs.
 
   _note: for saving docker images, read in [docker reference](#saving-images) below_
 
 - copy _docker-compose.yaml_ to _/.pickcel_
-- since we will be using images, replace `build: <path>` with `image: <image-name>`
+- since we will be using images, replace `build: <path>` with `image: <image-name>` in _docker-compose.yaml_
 - run the _cubic-setup.sh_ script
 - make sure that the permissions for _/.pickcel_ directory & all its contents is 600
 - to backup our database daily, setup a cron job using `crontab -e` & add
+
   ```
-  0 0 * * * /.pickcel/scripts/mongo-backup.sh
+  0 0 * * * /bin/bash /.pickcel/scripts/mongo-backup.sh
   ```
+
+  this will run the inturn run the _/mongo-backup.sh_ script inside the mongo's container
+
 - remove sudo previliges from the user if given
   ```
   $ sudo deluser <user> sudo
@@ -148,5 +152,5 @@ $ docker rm $(docker ps -q -f status=exited)
 save the app & mongo images using
 
 ```
-$ docker save -o <image-name.tar> <image-name>
+$ docker save -o <image-name.tar> <image-name(s)>
 ```

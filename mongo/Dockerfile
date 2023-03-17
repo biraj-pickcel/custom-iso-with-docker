@@ -3,7 +3,6 @@ COPY mongod.conf /etc/
 COPY mongo-backup.sh /
 RUN mkdir -p /home/database
 COPY dump /home/database/dump
-RUN mkdir $HOME/backup
 ENV DB_NAME=biraj
 ENV DB_USER=biraj
 ENV DB_PASS=biraj\$21..

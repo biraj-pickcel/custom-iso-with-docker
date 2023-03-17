@@ -4,6 +4,8 @@ BACKUP_DIR="$HOME/backup" # $HOME will be /data/db in our container
 BACKUP_NAME=$(date +%y-%m-%d_%H-%M-%S).gz
 DAYS_TO_KEEP=3
 
+mkdir -p "$BACKUP_DIR"
+
 date
 echo "dumping mongodb $DB_NAME database to $BACKUP_NAME"
 mongodump -u="$DB_USER" -p="$DB_PASS" --authenticationDatabase="$DB_NAME" --archive="$BACKUP_DIR/$BACKUP_NAME" --gzip

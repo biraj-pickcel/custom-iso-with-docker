@@ -2,5 +2,5 @@
 set -e
 
 docker rm $(docker ps -f status=exited -q)
-docker rmi dummy-docker-app-app dummy-docker-app-mongo
+docker rmi $(docker images --format "{{.Repository}}:{{.Tag}}" | grep dummy-docker-app)
 docker system prune -f
