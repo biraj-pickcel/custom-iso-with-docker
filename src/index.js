@@ -50,6 +50,17 @@ app.get("/users", async (req, res) => {
   }
 });
 
+app.delete("/users/:name", async (req, res, err) => {
+  try {
+    const { name } = req.params;
+    console.log(name);
+    console.log(await User.deleteOne({ name }));
+    res.sendStatus(200);
+  } catch (err) {
+    next(err);
+  }
+});
+
 app.post("/users", async (req, res) => {
   try {
     const { name, age } = req.body;
