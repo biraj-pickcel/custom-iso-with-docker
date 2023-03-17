@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.0.0",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "npx pm2-runtime start src/index.js -i 0 -n dummy-docker-app",
     "dev": "npx nodemon src/index.js",
     "docker-clean": "bash docker-clean.sh"
   },
@@ -13,6 +13,7 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mongoose": "^7.0.1",
+    "pm2": "^5.3.0",
     "redis": "^4.6.5"
   },
   "devDependencies": {
