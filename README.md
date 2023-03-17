@@ -14,7 +14,7 @@
   ```
   # apt install net-tools network-manager
   ```
-  we will use` network-manager` to setup wifi (maybe ethernet too ig, i just dk about that atm)
+  we will use` network-manager` to setup wifi (maybe ethernet too ig, idk about that atm)
 - install `redis` by following their [docs](https://redis.io/docs/getting-started/installation/install-redis-on-linux/)
 - create a new user:
   ```
