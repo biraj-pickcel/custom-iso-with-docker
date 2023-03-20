@@ -1,0 +1,9 @@
+[Unit]
+Description=fetch local ip address
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bash /.pickcel/scripts/ip.sh
+
+[Install]
+WantedBy=multi-user.target
