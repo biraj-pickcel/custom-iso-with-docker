@@ -1,5 +1,5 @@
 [Unit]
-Description=a service that will setup docker things that are necessary to run the server
+Description=setup docker things that are necessary to run the server
 
 [Service]
 Type=oneshot

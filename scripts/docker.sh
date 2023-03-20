@@ -1,3 +1,5 @@
+# load docker images & start the app
+
 # immediately exit if any command has a non-zero exit status
 set -e
 
