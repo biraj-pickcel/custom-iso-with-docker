@@ -16,15 +16,6 @@
   ```
   we will use` network-manager` to setup wifi (maybe ethernet too ig, idk about that atm)
 - install `redis` by following their [docs](https://redis.io/docs/getting-started/installation/install-redis-on-linux/)
-- create a new user:
-  ```
-  # adduser <newuser>
-  # usermod -aG sudo <newuser>  // add user to sudo group (don't forget remove it later)
-  ```
-- switch to new user with
-  ```
-  # su <newuser>
-  ```
 - install [docker](https://docs.docker.com/engine/install/ubuntu/)
 - create the following directoies:
   ```
@@ -39,7 +30,10 @@
 
 - copy _docker-compose.yaml_ to _/.pickcel_
 - since we will be using images, replace `build: <path>` with `image: <image-name>` in _docker-compose.yaml_
-- run the _cubic-setup.sh_ script
+- run the _enable-services.sh_ script
+  ```
+  # bash /.pickcel/scripts/enable-services.sh
+  ```
 - make sure that the permissions for _/.pickcel_ directory & all its contents is 600
 - to backup our database daily, setup a cron job using `crontab -e` & add
 
@@ -47,12 +41,8 @@
   0 0 * * * /bin/bash /.pickcel/scripts/mongo-backup.sh
   ```
 
-  this will run the inturn run the _/mongo-backup.sh_ script inside the mongo's container
+  this will inturn run the _/mongo-backup.sh_ script inside the mongo's container
 
-- remove sudo previliges from the user if given
-  ```
-  $ sudo deluser <user> sudo
-  ```
 - customizations done! now generate the iso & close Cubic
 - create a config file _user-data_ with the following (for default account creation):
   ```

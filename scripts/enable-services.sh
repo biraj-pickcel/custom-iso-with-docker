@@ -1,4 +1,5 @@
 # this script is meant to be used in cubic while creating the custom iso
+# to enable the services in /.pickcel/services
 
 # immediately exit if any command has a non-zero exit status
 set -e
