@@ -81,8 +81,8 @@ app.use((err, req, res, next) => {
 });
 
 try {
-  const { DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS } = process.env;
-  await mongoose.connect(`mongodb://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_PORT}/${DB_NAME}`);
+  const { MONGO_HOST, MONGO_PORT, MONGO_DB, MONGO_USERNAME, MONGO_PASSWORD } = process.env;
+  await mongoose.connect(`mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOST}:${MONGO_PORT}/${MONGO_DB}`);
   console.log("db connected");
 
   const { REDIS_HOST, REDIS_PORT } = process.env;
