@@ -1,5 +1,6 @@
 [Unit]
 Description=setup docker things that are necessary to run the server
+After=network-online.target
 
 [Service]
 Type=oneshot

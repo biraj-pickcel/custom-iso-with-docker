@@ -1,5 +1,6 @@
 [Unit]
 Description=fetch local ip address
+After=network-online.target
 
 [Service]
 Type=oneshot
