@@ -15,7 +15,6 @@
   # apt install net-tools network-manager
   ```
   we will use` network-manager` to setup wifi (maybe ethernet too ig, idk about that atm)
-- install `redis` by following their [docs](https://redis.io/docs/getting-started/installation/install-redis-on-linux/)
 - install [docker](https://docs.docker.com/engine/install/ubuntu/)
 - create the following directoies:
   ```
@@ -43,6 +42,10 @@
 
   this will inturn run the _/mongo-backup.sh_ script inside the mongo's container
 
+- create a user account for client
+  ```
+  # adduser client
+  ```
 - customizations done! now generate the iso & close Cubic
 - create a config file _user-data_ with the following (for default account creation):
   ```
