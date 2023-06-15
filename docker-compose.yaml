@@ -1,21 +1,28 @@
 services:
-  app:
+  nginx:
+    build: nginx
+    image: dummy/nginx
+    container_name: nginx
+    depends_on:
+      - backend
+    ports:
+      - 80:80
+    restart: always
+
+  backend:
     build: .
-    image: dummy-docker-app/app
+    image: dummy/backend
     container_name: backend
     ports:
       - 3000:3000
-    volumes:
-      - /.pickcel:/.pickcel
-    links:
-      - mongo
     depends_on:
       - mongo
       - redis
     restart: always
+
   mongo:
     build: mongo
-    image: dummy-docker-app/mongo
+    image: dummy/mongo
     container_name: mongo
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME}
@@ -26,11 +33,12 @@ services:
     ports:
       - 27107:27107
     volumes:
-      - /data/db:/data/db
+      - ./.mongo-data:/data/db
     restart: always
+
   redis:
     build: redis
-    image: dummy-docker-app/redis
+    image: dummy/redis
     container_name: redis
     ports:
       - 6379:6379

@@ -4,7 +4,7 @@ db.createUser({
   pwd: process.env.MONGO_PASSWORD,
   roles: [
     {
-      role: "readWrite",
+      role: "dbOwner",
       db: process.env.MONGO_DB,
     },
   ],

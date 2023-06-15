@@ -20,7 +20,7 @@ app.get("/redis/:key", async (req, res) => {
   try {
     const { key } = req.params;
     const value = await redisClient.get(key);
-    res.json({ data: { [key]: value } });
+    res.status(value === null ? 404 : 200).json({ data: { [key]: value } });
   } catch (err) {
     next(err);
   }
@@ -28,6 +28,11 @@ app.get("/redis/:key", async (req, res) => {
 
 app.post("/redis", async (req, res, next) => {
   try {
+    if (Object.keys(req.body).length === 0) {
+      res.status(400).json({ error: "at least one key is required in body" });
+      return;
+    }
+
     const setPromises = [];
     for (const key in req.body) {
       setPromises.push(redisClient.set(key, req.body[key]));
@@ -91,7 +96,7 @@ try {
   await redisClient.connect();
   console.log("redis connected");
 
-  const PORT = 3000;
+  const PORT = process.env.PORT ?? 3000;
   app.listen(PORT, () => console.log(`server running on port ${PORT}...`));
 } catch (err) {
   console.error(err.message);
